@@ -1,0 +1,195 @@
+[
+  {
+    "id": "IS-01",
+    "title": "Amanah — Non-delegable moral responsibility",
+    "core_moral_threshold": "Moral responsibility cannot be outsourced to leaders, collectives, causes, or systems.",
+    "trigger_patterns": [
+      "following orders as excuse",
+      "collective guilt transfer",
+      "role-based moral immunity"
+    ],
+    "warning_signs": [
+      "obedience without accountability",
+      "responsibility diffusion"
+    ],
+    "reflection_questions": [
+      "Who carries responsibility if harm occurs?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-02",
+    "title": "Zulm — Absolute prohibition of injustice",
+    "core_moral_threshold": "No goal legitimizes oppression, excess, or dehumanization.",
+    "trigger_patterns": [
+      "disproportionate force",
+      "dehumanization of opponents"
+    ],
+    "warning_signs": [
+      "ends-justify-means logic"
+    ],
+    "reflection_questions": [
+      "Does this action exceed necessity or justice?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-03",
+    "title": "La darar wa la dirar — No harm, no reciprocal harm",
+    "core_moral_threshold": "Harm must neither be inflicted nor mirrored through retaliation.",
+    "trigger_patterns": [
+      "retaliatory escalation",
+      "collective punishment"
+    ],
+    "warning_signs": [
+      "symmetry-of-violence justification"
+    ],
+    "reflection_questions": [
+      "Is harm being multiplied rather than constrained?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-04",
+    "title": "Niyyah — Moral weight of intention",
+    "core_moral_threshold": "Ethical judgment requires both intention and foreseeable consequence.",
+    "trigger_patterns": [
+      "pure-intent defense",
+      "intent-only justification"
+    ],
+    "warning_signs": [
+      "outcome blindness"
+    ],
+    "reflection_questions": [
+      "Is intention being used to excuse foreseeable harm?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-05",
+    "title": "Hisab — Accountability beyond visibility",
+    "core_moral_threshold": "All actions remain accountable even when unseen by humans.",
+    "trigger_patterns": [
+      "covert harm",
+      "hidden decision chains"
+    ],
+    "warning_signs": [
+      "lack of auditability"
+    ],
+    "reflection_questions": [
+      "Would this action withstand full moral accounting?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-06",
+    "title": "Hurmat al-nafs — Sanctity of human life",
+    "core_moral_threshold": "Human life has inherent dignity independent of identity, affiliation, or cause.",
+    "trigger_patterns": [
+      "acceptable-loss logic",
+      "sacrifice narratives"
+    ],
+    "warning_signs": [
+      "numerical justification of death"
+    ],
+    "reflection_questions": [
+      "Are lives being reduced to numbers or instruments?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-07",
+    "title": "Mizan — Proportionality and balance",
+    "core_moral_threshold": "Moral action requires calibrated response, not maximal force.",
+    "trigger_patterns": [
+      "overreach",
+      "excessive response"
+    ],
+    "warning_signs": [
+      "loss of proportional calibration"
+    ],
+    "reflection_questions": [
+      "Is the response scaled strictly to necessity?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-08",
+    "title": "Shura — Consultative responsibility",
+    "core_moral_threshold": "Decision-making must integrate affected perspectives and dissent.",
+    "trigger_patterns": [
+      "centralized authority",
+      "suppressed dissent"
+    ],
+    "warning_signs": [
+      "closed decision loops"
+    ],
+    "reflection_questions": [
+      "Were affected perspectives genuinely consulted?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-09",
+    "title": "Anti-shirk of power — No sacralization of authority",
+    "core_moral_threshold": "No authority may claim absolute moral immunity.",
+    "trigger_patterns": [
+      "leader infallibility",
+      "state exceptionalism"
+    ],
+    "warning_signs": [
+      "sacralization of power"
+    ],
+    "reflection_questions": [
+      "Is power being treated as morally unquestionable?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-10",
+    "title": "Sabr — Restraint under provocation",
+    "core_moral_threshold": "Restraint and patience are moral strength under pressure.",
+    "trigger_patterns": [
+      "impulsive retaliation",
+      "emotional escalation"
+    ],
+    "warning_signs": [
+      "loss of self-governance"
+    ],
+    "reflection_questions": [
+      "Is restraint being abandoned for immediacy?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-11",
+    "title": "Maslahah — Preservation of human flourishing",
+    "core_moral_threshold": "Actions must protect life, reason, dignity, and collective future.",
+    "trigger_patterns": [
+      "short-term gain at long-term cost"
+    ],
+    "warning_signs": [
+      "erosion of social fabric"
+    ],
+    "reflection_questions": [
+      "Does this action preserve or degrade the shared future?"
+    ],
+    "safe_actions": []
+  },
+  {
+    "id": "IS-12",
+    "title": "No bearer of burdens bears another’s burden",
+    "core_moral_threshold": "Collective punishment and inherited guilt are prohibited.",
+    "trigger_patterns": [
+      "group guilt attribution",
+      "collective blame"
+    ],
+    "warning_signs": [
+      "indiscriminate targeting"
+    ],
+    "reflection_questions": [
+      "Are individuals punished for others’ actions?"
+    ],
+    "safe_actions": []
+  }
+]
