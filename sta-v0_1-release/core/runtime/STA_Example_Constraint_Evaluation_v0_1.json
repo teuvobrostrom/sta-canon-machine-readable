@@ -1,0 +1,11 @@
+{
+  "evaluation_id": "e8981293-64dd-4b49-a7e2-35f6b66c0a44",
+  "envelope_id": "70ab06a6-32d6-4864-ac6f-796191579e39",
+  "structural_risk_score": 0.82,
+  "constraint_violations": [
+    "dissent_suppression"
+  ],
+  "escalation_level": "board_review",
+  "confidence_level": 0.82,
+  "evaluated_at": "2026-02-18T21:47:54Z"
+}

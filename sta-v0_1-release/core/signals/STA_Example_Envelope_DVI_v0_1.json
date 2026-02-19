@@ -1,0 +1,30 @@
+{
+  "sta_version": "0.1",
+  "envelope_id": "754b8a25-a82c-4486-9091-bf9762a8afa2",
+  "organization_id": "ORG-EXAMPLE-001",
+  "signal_category": "decision_structure",
+  "signal_type": "dissent_variance_index",
+  "source_system": "board_meeting_metadata",
+  "aggregation_level": "enterprise",
+  "time_window": {
+    "start": "2026-01-01T00:00:00Z",
+    "end": "2026-03-31T23:59:59Z"
+  },
+  "metrics": {
+    "baseline_value": 0.28,
+    "observed_value": 0.09,
+    "deviation_score": -0.19,
+    "confidence_level": 0.82,
+    "total_decisions": 120,
+    "dissent_events": 11
+  },
+  "context": {
+    "organizational_phase": "growth",
+    "strategic_cycle": "Q1"
+  },
+  "anomaly_flags": [
+    "dissent_suppression"
+  ],
+  "risk_weight": 0.74,
+  "generated_at": "2026-02-18T21:26:06Z"
+}

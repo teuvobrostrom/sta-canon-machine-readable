@@ -1,0 +1,87 @@
+{
+  "sta_version": "0.1",
+  "signal_id": "STA-SIG-SAL-0.1",
+  "signal_name": "Strategic Adaptation Latency (SAL)",
+  "signal_category": "adaptation_dynamics",
+  "signal_type": "strategic_adaptation_latency",
+  "intent": "Measure the time lag between first registered risk/incident signal and first logged organizational action/decision, as an early indicator of delayed adaptation.",
+  "privacy_profile": {
+    "contains_personal_data": false,
+    "contains_message_content": false,
+    "contains_individual_level_metrics": false,
+    "data_requirement": "aggregated_timestamps_and_counts_only"
+  },
+  "data_requirements": {
+    "required_fields": [
+      "time_window.start",
+      "time_window.end",
+      "metrics.events_count",
+      "metrics.latencies_days"
+    ],
+    "optional_fields": [
+      "metrics.events_by_severity",
+      "metrics.events_by_business_unit"
+    ],
+    "minimum_granularity": "enterprise | business_unit | department",
+    "source_system_examples": [
+      "risk_register",
+      "incident_management_tool",
+      "project_tracking_system",
+      "governance_portal"
+    ],
+    "event_definition_v0_1": {
+      "event_start": "timestamp when a risk/incident is first logged (or first reaches threshold)",
+      "first_action": "timestamp when first formal action/decision is logged against the event",
+      "latency_days": "(first_action - event_start) in days"
+    }
+  },
+  "calculation": {
+    "primary_statistic": "median",
+    "formula": "SAL_observed = median(latency_days) over events in time window",
+    "constraints": [
+      "events_count >= 1",
+      "all latency_days >= 0"
+    ],
+    "baseline_definition": {
+      "method": "rolling_window",
+      "window": "4_quarters",
+      "statistic": "median"
+    },
+    "deviation_definition": {
+      "method": "difference",
+      "expression": "observed_value - baseline_value"
+    },
+    "confidence_definition": {
+      "range": "0.0-1.0",
+      "inputs": [
+        "events_coverage",
+        "timestamp_quality",
+        "source_reliability"
+      ]
+    }
+  },
+  "mapping_to_envelope_v0_1": {
+    "signal_category": "adaptation_dynamics",
+    "signal_type": "strategic_adaptation_latency",
+    "metrics": {
+      "baseline_value": "SAL_baseline_median_days",
+      "observed_value": "SAL_observed_median_days",
+      "deviation_score": "SAL_observed - SAL_baseline_median_days",
+      "confidence_level": "computed_confidence_0_to_1"
+    },
+    "anomaly_flags": [
+      {
+        "flag": "adaptation_latency",
+        "trigger_example": "deviation_score >= +7 AND confidence_level >= 0.70"
+      }
+    ]
+  },
+  "output_semantics": {
+    "positive_deviation": "Slower adaptation than baseline (higher structural risk of delayed response).",
+    "negative_deviation": "Faster adaptation than baseline (potentially healthier responsiveness)."
+  },
+  "versioning": {
+    "status": "draft",
+    "created_at": "2026-02-18T21:32:53Z"
+  }
+}

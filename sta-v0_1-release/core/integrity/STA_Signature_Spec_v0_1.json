@@ -1,0 +1,25 @@
+{
+  "canonical_id": "sta::core::spec::signature::v0.1::authority=STA",
+  "version": "0.1",
+  "sig_alg": "ed25519",
+  "required_signature_fields": [
+    "sig_alg",
+    "signer",
+    "public_key_id",
+    "signature_b64"
+  ],
+  "structure": {
+    "signature": {
+      "sig_alg": "ed25519",
+      "signer": "authority=STA",
+      "public_key_id": "sta::keys::core_signing::v0.1::authority=STA",
+      "signature_b64": "BASE64_SIGNATURE_OVER_output_hash"
+    }
+  },
+  "enforcement": [
+    "If signatures are enabled, runtime MUST sign output_hash.",
+    "Verification MUST be possible using public_key_id resolution.",
+    "Override events MUST be separately signed and linked to original output_hash."
+  ],
+  "note": "In v0.1, signatures may be optional operationally, but the schema should exist now to avoid later breaking changes."
+}

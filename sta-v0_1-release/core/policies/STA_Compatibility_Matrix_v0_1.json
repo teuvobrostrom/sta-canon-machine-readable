@@ -1,0 +1,30 @@
+{
+  "canonical_id": "sta::core::policy::compat_matrix::v0.1::authority=STA",
+  "version": "0.1",
+  "statuses": [
+    "supported",
+    "deprecated",
+    "unsupported"
+  ],
+  "supports": [
+    {
+      "runtime": "sta::core::runtime::engine::v0.1::authority=STA",
+      "envelope_schema": "sta::core::schema::envelope::v0.1::authority=STA",
+      "signal_definitions": [
+        "sta::core::signal::sal::v0.1::authority=STA",
+        "sta::core::signal::dvi::v0.1::authority=STA"
+      ],
+      "rule_registry": "sta::core::registry::rules::v0.1::authority=STA",
+      "escalation_policy": "sta::core::policy::escalation::v0.1::authority=STA",
+      "constraint_engine_interface": "sta::core::interface::constraint_engine::v0.1::authority=STA",
+      "compatibility_policy": "sta::core::policy::compatibility::v0.1::authority=STA",
+      "status": "supported",
+      "notes": "Baseline support for STA v0.1 pinned version set."
+    }
+  ],
+  "enforcement": [
+    "Runtime MUST check the pinned version set against this matrix before execution.",
+    "If status is unsupported => refuse execution.",
+    "If status is deprecated => allow only with explicit override flag + audit log."
+  ]
+}

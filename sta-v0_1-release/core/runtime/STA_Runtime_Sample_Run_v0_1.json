@@ -1,0 +1,21 @@
+{
+  "run_id": "6b4e6418-ab37-4d9f-98bf-b846f4109b17",
+  "input_envelope_ref": "STA_Example_Envelope_DVI_v0_1.json",
+  "selected_rules": [
+    "RULE-DVI-001"
+  ],
+  "triggered_violations": [
+    {
+      "rule_id": "RULE-DVI-001",
+      "violation_type": "dissent_suppression",
+      "escalation_floor": "board_review",
+      "risk_weight": 0.74
+    }
+  ],
+  "computed": {
+    "structural_risk_score": 0.82,
+    "policy_escalation": "board_review",
+    "final_escalation": "board_review"
+  },
+  "output_evaluation_ref": "STA_Example_Constraint_Evaluation_v0_1.json"
+}

@@ -1,0 +1,39 @@
+{
+  "sta_version": "0.1",
+  "envelope_id": "2c759a76-cda5-404b-b035-0caaa7d156e7",
+  "organization_id": "ORG-EXAMPLE-001",
+  "signal_category": "adaptation_dynamics",
+  "signal_type": "strategic_adaptation_latency",
+  "source_system": "risk_register",
+  "aggregation_level": "enterprise",
+  "time_window": {
+    "start": "2026-01-01T00:00:00Z",
+    "end": "2026-03-31T23:59:59Z"
+  },
+  "metrics": {
+    "baseline_value": 8.0,
+    "observed_value": 9.0,
+    "deviation_score": 1.0,
+    "confidence_level": 0.78,
+    "events_count": 9,
+    "latencies_days": [
+      2,
+      3,
+      4,
+      7,
+      9,
+      12,
+      14,
+      21,
+      25
+    ],
+    "statistic": "median"
+  },
+  "context": {
+    "organizational_phase": "crisis",
+    "strategic_cycle": "Q1"
+  },
+  "anomaly_flags": [],
+  "risk_weight": 0.72,
+  "generated_at": "2026-02-18T21:32:53Z"
+}

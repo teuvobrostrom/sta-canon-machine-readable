@@ -1,0 +1,66 @@
+{
+  "sta_version": "0.1",
+  "runtime_id": "STA-RUNTIME-SPEC-0.1",
+  "description": "Deterministic runtime flow for evaluating STA Signal Envelopes via Rule Registry and Escalation Policy to produce Constraint Evaluation Objects.",
+  "inputs": {
+    "envelope": "STA Signal Envelope v0.1",
+    "rule_registry": "STA Rule Registry v0.1",
+    "escalation_policy": "STA Escalation Policy v0.1",
+    "engine_interface": "STA Constraint Engine Interface v0.1"
+  },
+  "outputs": {
+    "constraint_evaluation": "Constraint Evaluation Object v0.1"
+  },
+  "pipeline_steps": [
+    {
+      "step": 1,
+      "name": "validate_envelope",
+      "description": "Validate presence and type of required fields for envelope core and signal-specific requirements (if available).",
+      "on_failure": "return evaluation with escalation_level='advisory', violations=['invalid_envelope'], confidence_level=0.0"
+    },
+    {
+      "step": 2,
+      "name": "select_applicable_rules",
+      "description": "Select rules from Rule Registry where rule.signal_type == envelope.signal_type OR rule.signal_id matches mapped signal_id for this signal_type.",
+      "output": "applicable_rules[]"
+    },
+    {
+      "step": 3,
+      "name": "evaluate_rule_conditions",
+      "description": "Evaluate each applicable rule condition against envelope fields (deterministic).",
+      "output": "violations[] with per-violation metadata (rule_id, violation_type, escalation_floor, risk_weight)"
+    },
+    {
+      "step": 4,
+      "name": "compute_structural_risk_score",
+      "description": "Compute structural_risk_score using deterministic mapping. v0.1 uses max over triggered rules: min(1.0, abs(deviation_score) * confidence_level * risk_weight). If no violations, use min(1.0, abs(deviation_score) * confidence_level * 0.25).",
+      "output": "structural_risk_score (0.0\u20131.0)"
+    },
+    {
+      "step": 5,
+      "name": "apply_escalation_policy",
+      "description": "Map (violations_count, structural_risk_score) to escalation_level via Escalation Policy. Apply rule escalation floors: escalation_level must be >= max(escalation_floor among violations).",
+      "output": "escalation_level"
+    },
+    {
+      "step": 6,
+      "name": "assemble_output",
+      "description": "Assemble Constraint Evaluation Object with evaluation_id, envelope_id reference, score, violations, escalation_level, confidence_level, evaluated_at.",
+      "output": "Constraint Evaluation Object v0.1"
+    }
+  ],
+  "determinism_constraints": [
+    "No probabilistic inference",
+    "No external web calls",
+    "Same inputs must yield same outputs (excluding timestamps/UUIDs unless provided)"
+  ],
+  "error_and_edge_cases": {
+    "unknown_signal_type": "Return advisory with violation ['unknown_signal_type'], score computed from generic deviation mapping, confidence = envelope.metrics.confidence_level if present else 0.0",
+    "missing_deviation_or_confidence": "Return advisory with violation ['insufficient_metrics'], confidence=0.0, score=0.0",
+    "no_rules_triggered": "Return escalation per policy based on score; default usually 'none' or 'advisory' depending on thresholds"
+  },
+  "versioning": {
+    "status": "draft",
+    "created_at": "2026-02-18T22:00:45Z"
+  }
+}

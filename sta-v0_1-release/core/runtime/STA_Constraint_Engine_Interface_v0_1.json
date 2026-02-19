@@ -1,0 +1,62 @@
+{
+  "sta_version": "0.1",
+  "engine_id": "STA-ENGINE-EX-TI-0.1",
+  "engine_name": "EX-TI Constraint Engine Interface",
+  "description": "Stateless evaluation engine that processes STA Signal Envelopes and produces structured governance risk outputs.",
+  "input_specification": {
+    "accepted_object": "STA Signal Envelope v0.1",
+    "required_fields": [
+      "sta_version",
+      "envelope_id",
+      "signal_category",
+      "signal_type",
+      "metrics.baseline_value",
+      "metrics.observed_value",
+      "metrics.deviation_score",
+      "metrics.confidence_level"
+    ]
+  },
+  "evaluation_logic_v0_1": {
+    "principle": "Deterministic rule-based constraint evaluation (no probabilistic AI inference).",
+    "rules": [
+      {
+        "rule_id": "RULE-DVI-001",
+        "description": "Detect dissent suppression",
+        "condition": "signal_type == 'dissent_variance_index' AND deviation_score <= -0.15 AND confidence_level >= 0.70",
+        "violation_type": "dissent_suppression"
+      },
+      {
+        "rule_id": "RULE-SAL-001",
+        "description": "Detect strategic adaptation latency",
+        "condition": "signal_type == 'strategic_adaptation_latency' AND deviation_score >= +7 AND confidence_level >= 0.70",
+        "violation_type": "adaptation_latency"
+      }
+    ]
+  },
+  "output_specification": {
+    "output_object": "Constraint Evaluation Object v0.1",
+    "fields": {
+      "evaluation_id": "UUID",
+      "envelope_id": "UUID (reference)",
+      "structural_risk_score": "FLOAT (0.0\u20131.0)",
+      "constraint_violations": "ARRAY of violation_type",
+      "escalation_level": "none | advisory | board_review | critical",
+      "confidence_level": "FLOAT (0.0\u20131.0)",
+      "evaluated_at": "ISO8601"
+    }
+  },
+  "risk_scoring_v0_1": {
+    "method": "Weighted deviation mapping",
+    "example_logic": "structural_risk_score = min(1.0, abs(deviation_score) * confidence_level)",
+    "note": "Score represents structural tension, not guilt or misconduct."
+  },
+  "governance_principle": {
+    "board_visibility": true,
+    "operational_filtering_allowed": false,
+    "interpretation_note": "Engine outputs indicators, not accusations."
+  },
+  "versioning": {
+    "status": "draft",
+    "created_at": "2026-02-18T21:47:54Z"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "sta_version": "0.1",
+  "description": "STA Signal Envelope v0.1 \u2013 Minimal structural signal schema for Systemic Truth Architecture",
+  "schema": {
+    "envelope_id": "UUID",
+    "organization_id": "STRING",
+    "signal_category": "STRING",
+    "signal_type": "STRING",
+    "source_system": "STRING",
+    "aggregation_level": "department | business_unit | enterprise",
+    "time_window": {
+      "start": "ISO8601",
+      "end": "ISO8601"
+    },
+    "metrics": {
+      "baseline_value": "FLOAT",
+      "observed_value": "FLOAT",
+      "deviation_score": "FLOAT",
+      "confidence_level": "0.0-1.0"
+    },
+    "context": {
+      "organizational_phase": "normal | growth | crisis | restructuring",
+      "strategic_cycle": "Q1 | Q2 | Q3 | Q4 | annual | ad_hoc"
+    },
+    "anomaly_flags": [
+      "power_concentration",
+      "narrative_divergence",
+      "dissent_suppression",
+      "adaptation_latency"
+    ],
+    "risk_weight": "FLOAT",
+    "generated_at": "ISO8601"
+  }
+}

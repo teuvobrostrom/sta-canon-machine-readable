@@ -1,0 +1,61 @@
+{
+  "sta_version": "0.1",
+  "registry_id": "STA-RULE-REGISTRY-0.1",
+  "description": "Registry mapping signals to deterministic constraint rules for the EX-TI Constraint Engine.",
+  "rules": [
+    {
+      "rule_id": "RULE-DVI-001",
+      "signal_id": "STA-SIG-DVI-0.1",
+      "signal_type": "dissent_variance_index",
+      "violation_type": "dissent_suppression",
+      "condition": {
+        "operator": "AND",
+        "clauses": [
+          {
+            "field": "metrics.deviation_score",
+            "op": "<=",
+            "value": -0.15
+          },
+          {
+            "field": "metrics.confidence_level",
+            "op": ">=",
+            "value": 0.7
+          }
+        ]
+      },
+      "outputs": {
+        "escalation_level_min": "board_review",
+        "risk_weight": 0.74
+      }
+    },
+    {
+      "rule_id": "RULE-SAL-001",
+      "signal_id": "STA-SIG-SAL-0.1",
+      "signal_type": "strategic_adaptation_latency",
+      "violation_type": "adaptation_latency",
+      "condition": {
+        "operator": "AND",
+        "clauses": [
+          {
+            "field": "metrics.deviation_score",
+            "op": ">=",
+            "value": 7.0
+          },
+          {
+            "field": "metrics.confidence_level",
+            "op": ">=",
+            "value": 0.7
+          }
+        ]
+      },
+      "outputs": {
+        "escalation_level_min": "board_review",
+        "risk_weight": 0.72
+      }
+    }
+  ],
+  "versioning": {
+    "status": "draft",
+    "created_at": "2026-02-18T21:53:52Z"
+  }
+}

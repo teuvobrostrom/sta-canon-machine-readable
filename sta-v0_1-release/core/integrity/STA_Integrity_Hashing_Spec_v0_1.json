@@ -1,0 +1,30 @@
+{
+  "canonical_id": "sta::core::spec::integrity_hashing::v0.1::authority=STA",
+  "version": "0.1",
+  "hash_alg": "sha256",
+  "canonicalization": {
+    "json_key_sort": true,
+    "utf8": true,
+    "no_trailing_spaces": true,
+    "timestamps": "ISO8601 UTC (Z)",
+    "null_policy": "omit null fields unless semantically required by schema"
+  },
+  "required_hash_fields": [
+    "input_hash",
+    "pinned_versions_hash",
+    "output_hash"
+  ],
+  "optional_hash_fields": [
+    "previous_output_hash"
+  ],
+  "hash_definitions": {
+    "input_hash": "SHA256(canonical_json(input_envelope))",
+    "pinned_versions_hash": "SHA256(canonical_json(pinned_versions))",
+    "output_hash": "SHA256(canonical_json(evaluation_output_without_signature))",
+    "previous_output_hash": "SHA256 of prior output (for chained logs)"
+  },
+  "enforcement": [
+    "Runtime MUST compute and emit required hash fields for every evaluation output.",
+    "Human override MUST be non-destructive: preserve original output_hash."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "canonical_id": "sta::core::policy::canonical_id::v0.1::authority=STA",
+  "version": "0.1",
+  "status": "draft",
+  "format": "sta::<namespace>::<artifact_type>::<artifact_name>::v<major>.<minor>::authority=<origin>",
+  "regex": "^sta::[a-z0-9_]+::[a-z0-9_]+::[a-z0-9_]+::v[0-9]+\\.[0-9]+::authority=[A-Za-z0-9_\\-]+$",
+  "rules": [
+    "canonical_id is REQUIRED on every STA artifact.",
+    "Namespace, artifact_type, artifact_name, version, and authority are REQUIRED.",
+    "canonical_id MUST be immutable once published.",
+    "canonical_id MUST NOT be reused (no collisions) within a registry.",
+    "artifact.version MUST match the semantic version embedded in canonical_id."
+  ],
+  "examples": [
+    "sta::core::signal::dvi::v0.1::authority=STA",
+    "sta::core::rule::dvi_001::v0.1::authority=STA",
+    "sta::core::policy::escalation::v0.1::authority=STA",
+    "sta::core::schema::envelope::v0.1::authority=STA"
+  ]
+}

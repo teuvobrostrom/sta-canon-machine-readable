@@ -1,0 +1,81 @@
+{
+  "sta_version": "0.1",
+  "signal_id": "STA-SIG-DVI-0.1",
+  "signal_name": "Dissent Variance Index (DVI)",
+  "signal_category": "decision_structure",
+  "signal_type": "dissent_variance_index",
+  "intent": "Measure structural dissent presence/absence in decision-making as an early indicator of decision monoculture and suppressed dissent.",
+  "privacy_profile": {
+    "contains_personal_data": false,
+    "contains_message_content": false,
+    "contains_individual_level_metrics": false,
+    "data_requirement": "aggregated_counts_only"
+  },
+  "data_requirements": {
+    "required_fields": [
+      "time_window.start",
+      "time_window.end",
+      "metrics.total_decisions",
+      "metrics.dissent_events"
+    ],
+    "optional_fields": [
+      "metrics.total_meetings",
+      "metrics.abstentions"
+    ],
+    "minimum_granularity": "enterprise | business_unit | department",
+    "source_system_examples": [
+      "board_meeting_metadata",
+      "decision_log_system",
+      "governance_portal"
+    ]
+  },
+  "calculation": {
+    "formula": "DVI = dissent_events / total_decisions",
+    "constraints": [
+      "total_decisions > 0",
+      "0 <= dissent_events <= total_decisions",
+      "0.0 <= DVI <= 1.0"
+    ],
+    "baseline_definition": {
+      "method": "rolling_window",
+      "window": "4_quarters",
+      "statistic": "mean"
+    },
+    "deviation_definition": {
+      "method": "difference",
+      "expression": "observed_value - baseline_value"
+    },
+    "confidence_definition": {
+      "range": "0.0-1.0",
+      "inputs": [
+        "data_completeness",
+        "decision_coverage",
+        "source_reliability"
+      ]
+    }
+  },
+  "mapping_to_envelope_v0_1": {
+    "signal_category": "decision_structure",
+    "signal_type": "dissent_variance_index",
+    "metrics": {
+      "baseline_value": "DVI_baseline_mean",
+      "observed_value": "DVI_observed",
+      "deviation_score": "DVI_observed - DVI_baseline_mean",
+      "confidence_level": "computed_confidence_0_to_1"
+    },
+    "anomaly_flags": [
+      {
+        "flag": "dissent_suppression",
+        "trigger_example": "deviation_score <= -0.15 AND confidence_level >= 0.70"
+      }
+    ]
+  },
+  "output_semantics": {
+    "positive_deviation": "More dissent than baseline (potentially healthier variance, or conflict spike depending on context).",
+    "negative_deviation": "Less dissent than baseline (potentially decision monoculture / suppressed dissent)."
+  },
+  "versioning": {
+    "status": "draft",
+    "created_at": "2026-02-18T21:26:06Z"
+  }
+}

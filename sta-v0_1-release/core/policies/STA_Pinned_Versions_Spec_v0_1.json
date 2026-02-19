@@ -1,0 +1,46 @@
+{
+  "canonical_id": "sta::core::spec::pinned_versions::v0.1::authority=STA",
+  "version": "0.1",
+  "status": "draft",
+  "required_keys": [
+    "runtime",
+    "envelope_schema",
+    "signal_definitions",
+    "rule_registry",
+    "escalation_policy",
+    "constraint_engine_interface",
+    "compatibility_policy"
+  ],
+  "structure": {
+    "pinned_versions": {
+      "runtime": "canonical_id",
+      "envelope_schema": "canonical_id",
+      "signal_definitions": [
+        "canonical_id"
+      ],
+      "rule_registry": "canonical_id",
+      "escalation_policy": "canonical_id",
+      "constraint_engine_interface": "canonical_id",
+      "compatibility_policy": "canonical_id"
+    }
+  },
+  "enforcement": [
+    "Runtime MUST refuse execution if any required pin is missing.",
+    "Runtime MUST emit pinned_versions as part of every evaluation output.",
+    "Runtime MUST compute pinned_versions_hash (see integrity hashing spec)."
+  ],
+  "example": {
+    "pinned_versions": {
+      "runtime": "sta::core::runtime::engine::v0.1::authority=STA",
+      "envelope_schema": "sta::core::schema::envelope::v0.1::authority=STA",
+      "signal_definitions": [
+        "sta::core::signal::sal::v0.1::authority=STA",
+        "sta::core::signal::dvi::v0.1::authority=STA"
+      ],
+      "rule_registry": "sta::core::registry::rules::v0.1::authority=STA",
+      "escalation_policy": "sta::core::policy::escalation::v0.1::authority=STA",
+      "constraint_engine_interface": "sta::core::interface::constraint_engine::v0.1::authority=STA",
+      "compatibility_policy": "sta::core::policy::compatibility::v0.1::authority=STA"
+    }
+  }
+}
