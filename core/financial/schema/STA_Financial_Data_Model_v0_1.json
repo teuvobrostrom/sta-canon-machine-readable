@@ -1,0 +1,54 @@
+{
+  "schema_id": "sta.schema.financial_data_model.v0_1",
+  "version": "0.1",
+  "description": "Minimal financial data model for STA for Due Diligence (annual report abstraction).",
+  "entities": {
+    "report": {
+      "fields": {
+        "entity_id": "string",
+        "period_end": "YYYY-MM-DD",
+        "currency": "string",
+        "unit": "string",
+        "source_type": "string",
+        "notes": "string"
+      }
+    },
+    "statement_line": {
+      "fields": {
+        "statement": "enum: BS|IS|CF|EQ",
+        "line_id": "string",
+        "label": "string",
+        "amount": "number",
+        "sign_convention": "enum: NATURAL|DEBIT_POSITIVE|CREDIT_POSITIVE",
+        "mapped_account_code": "string",
+        "confidence": "number"
+      }
+    },
+    "reconciliation": {
+      "fields": {
+        "recon_type": "enum: BS|EQ|CF",
+        "lhs": "number",
+        "rhs": "number",
+        "tolerance": "number",
+        "delta": "number",
+        "status": "enum: PASS|FAIL"
+      }
+    }
+  },
+  "required_minimum": {
+    "BS": [
+      "AssetsTotal",
+      "EquityTotal",
+      "LiabilitiesTotal"
+    ],
+    "IS": [
+      "ProfitAfterTax"
+    ],
+    "EQ": [
+      "EquityOpening",
+      "ProfitAfterTax",
+      "Dividends",
+      "EquityClosing"
+    ]
+  }
+}
