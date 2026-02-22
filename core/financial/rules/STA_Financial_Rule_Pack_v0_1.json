@@ -1,0 +1,70 @@
+{
+  "financial_rule_pack_id": "sta.rules.financial.v0_1",
+  "version": "0.1",
+  "description": "Rule pack mapping financial signals to risk levels and escalation paths in STA for Due Diligence.",
+  "rules": [
+    {
+      "rule_id": "FIN_R01",
+      "signal_type": "FIN.BS.EQUATION_BREAK",
+      "risk_level": "CRITICAL",
+      "escalation": "BOARD_IMMEDIATE",
+      "description": "Balance sheet equation failure indicates structural invalidity of reported financial position."
+    },
+    {
+      "rule_id": "FIN_R02",
+      "signal_type": "FIN.EQ.ROLLFORWARD_BREAK",
+      "risk_level": "CRITICAL",
+      "escalation": "BOARD_IMMEDIATE",
+      "description": "Equity reconciliation failure indicates internal inconsistency across statements."
+    },
+    {
+      "rule_id": "FIN_R03",
+      "signal_type": "FIN.DIV.LEGALITY_IMPOSSIBLE",
+      "risk_level": "CRITICAL",
+      "escalation": "BOARD_IMMEDIATE",
+      "description": "Dividend appears structurally impossible relative to equity capacity."
+    },
+    {
+      "rule_id": "FIN_R04",
+      "signal_type": "FIN.CF.CONSISTENCY_BREAK",
+      "risk_level": "HIGH",
+      "escalation": "AUDIT_COMMITTEE",
+      "description": "Cash flow inconsistency undermines interpretation of liquidity."
+    },
+    {
+      "rule_id": "FIN_R05",
+      "signal_type": "FIN.WRITEDOWN.CAUSALITY_BREAK",
+      "risk_level": "HIGH",
+      "escalation": "AUDIT_COMMITTEE",
+      "description": "Large write-down without structural explanation requires investigation."
+    },
+    {
+      "rule_id": "FIN_R06",
+      "signal_type": "FIN.DEBIT_CREDIT.MISSING_COUNTERPART",
+      "risk_level": "CRITICAL",
+      "escalation": "FORENSIC_REVIEW",
+      "description": "Possible break in double-entry logic or hidden offsetting entries."
+    },
+    {
+      "rule_id": "FIN_R07",
+      "signal_type": "FIN.IC.UNEXPLAINED_MOVEMENT",
+      "risk_level": "MEDIUM",
+      "escalation": "FINANCE_REVIEW",
+      "description": "Intercompany movement requires explanation."
+    },
+    {
+      "rule_id": "FIN_R08",
+      "signal_type": "FIN.NOTE.DEPENDENCY_MISSING",
+      "risk_level": "MEDIUM",
+      "escalation": "DISCLOSURE_REVIEW",
+      "description": "Disclosure appears incomplete relative to financial line."
+    },
+    {
+      "rule_id": "FIN_R09",
+      "signal_type": "FIN.MAPPING.LOW_CONFIDENCE",
+      "risk_level": "LOW",
+      "escalation": "DATA_QUALITY_CHECK",
+      "description": "Mapping uncertainty in financial ingestion."
+    }
+  ]
+}
