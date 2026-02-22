@@ -1,0 +1,68 @@
+{
+  "signal_definition_id": "sta.signal.definition.fin.v0_1",
+  "version": "0.1",
+  "domain": "financial_due_diligence",
+  "description": "Financial anomaly and structural integrity signals used by STA for Due Diligence.",
+  "signal_types": [
+    {
+      "type": "FIN.BS.EQUATION_BREAK",
+      "severity_default": "CRITICAL",
+      "category": "balance_sheet_integrity",
+      "description": "Balance sheet equation fails: Assets are not equal to Equity plus Liabilities."
+    },
+    {
+      "type": "FIN.EQ.ROLLFORWARD_BREAK",
+      "severity_default": "CRITICAL",
+      "category": "equity_consistency",
+      "description": "Equity roll-forward fails: Opening equity plus profit minus dividends and movements does not equal closing equity."
+    },
+    {
+      "type": "FIN.DIV.LEGALITY_IMPOSSIBLE",
+      "severity_default": "CRITICAL",
+      "category": "distribution_test",
+      "description": "Dividend appears structurally impossible relative to equity capacity."
+    },
+    {
+      "type": "FIN.IS.BS.DIVERGENCE",
+      "severity_default": "HIGH",
+      "category": "statement_consistency",
+      "description": "Income statement result does not reconcile with balance sheet movement."
+    },
+    {
+      "type": "FIN.CF.CONSISTENCY_BREAK",
+      "severity_default": "HIGH",
+      "category": "cashflow_integrity",
+      "description": "Cash flow statement does not reconcile with change in cash position."
+    },
+    {
+      "type": "FIN.WRITEDOWN.CAUSALITY_BREAK",
+      "severity_default": "HIGH",
+      "category": "valuation_logic",
+      "description": "Large write-down appears without structural cause in surrounding financial statements."
+    },
+    {
+      "type": "FIN.IC.UNEXPLAINED_MOVEMENT",
+      "severity_default": "MEDIUM",
+      "category": "intercompany",
+      "description": "Intercompany balances move significantly without matching explanation."
+    },
+    {
+      "type": "FIN.DEBIT_CREDIT.MISSING_COUNTERPART",
+      "severity_default": "CRITICAL",
+      "category": "double_entry_integrity",
+      "description": "Large credit-like effect appears without traceable debit counterpart."
+    },
+    {
+      "type": "FIN.NOTE.DEPENDENCY_MISSING",
+      "severity_default": "MEDIUM",
+      "category": "disclosure_integrity",
+      "description": "A financial line normally requiring note disclosure lacks supporting information."
+    },
+    {
+      "type": "FIN.MAPPING.LOW_CONFIDENCE",
+      "severity_default": "LOW",
+      "category": "data_quality",
+      "description": "Mapping from source financial statement to STA model has low confidence."
+    }
+  ]
+}
