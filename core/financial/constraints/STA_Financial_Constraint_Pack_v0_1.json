@@ -1,0 +1,70 @@
+{
+  "constraint_pack_id": "sta.constraints.financial.v0_1",
+  "version": "0.1",
+  "description": "Constraint pack for structural financial integrity checks used in STA for Due Diligence.",
+  "tolerance_defaults": {
+    "absolute": 1000,
+    "percentage": 0.001
+  },
+  "constraints": [
+    {
+      "constraint_id": "FIN_C01_BS_EQUATION",
+      "type": "equation",
+      "description": "Assets must equal Equity plus Liabilities.",
+      "lhs": ["AssetsTotal"],
+      "rhs": ["EquityTotal", "LiabilitiesTotal"],
+      "tolerance": {
+        "absolute": 1000,
+        "percentage": 0.001
+      },
+      "signal_on_fail": "FIN.BS.EQUATION_BREAK"
+    },
+    {
+      "constraint_id": "FIN_C02_EQUITY_ROLLFORWARD",
+      "type": "rollforward",
+      "description": "Equity closing must reconcile with opening, profit, and dividends.",
+      "opening": "EquityOpening",
+      "add": ["ProfitAfterTax", "OtherEquityMovements"],
+      "subtract": ["Dividends"],
+      "closing": "EquityClosing",
+      "tolerance": {
+        "absolute": 1000,
+        "percentage": 0.001
+      },
+      "signal_on_fail": "FIN.EQ.ROLLFORWARD_BREAK"
+    },
+    {
+      "constraint_id": "FIN_C03_DIVIDEND_CAPACITY",
+      "type": "plausibility",
+      "description": "Dividend should not exceed closing equity capacity.",
+      "inputs": ["Dividends", "EquityClosing"],
+      "rule": "abs(Dividends) <= abs(EquityClosing) + tolerance",
+      "tolerance": 1000,
+      "signal_on_fail": "FIN.DIV.LEGALITY_IMPOSSIBLE"
+    },
+    {
+      "constraint_id": "FIN_C04_PROFIT_LINK",
+      "type": "consistency",
+      "description": "Profit should be reflected in equity movement.",
+      "inputs": ["ProfitAfterTax", "EquityOpening", "EquityClosing"],
+      "rule": "abs(ProfitAfterTax) > 0 implies abs(EquityClosing - EquityOpening) > 0",
+      "signal_on_fail": "FIN.IS.BS.DIVERGENCE"
+    },
+    {
+      "constraint_id": "FIN_C05_WRITEDOWN_THRESHOLD",
+      "type": "threshold",
+      "description": "Large write-downs trigger a structural review signal.",
+      "input": "WriteDownsInvestments",
+      "threshold": 1000000,
+      "signal_on_fail": "FIN.WRITEDOWN.CAUSALITY_BREAK"
+    },
+    {
+      "constraint_id": "FIN_C06_COUNTERPART_HEURISTIC",
+      "type": "heuristic",
+      "description": "Large income event without corresponding balance movement.",
+      "inputs": ["ExtraordinaryIncome", "ReceivablesMovement"],
+      "rule": "abs(ExtraordinaryIncome) > 1000000 and abs(ReceivablesMovement) < abs(ExtraordinaryIncome) * 0.1",
+      "signal_on_fail": "FIN.DEBIT_CREDIT.MISSING_COUNTERPART"
+    }
+  ]
+}
