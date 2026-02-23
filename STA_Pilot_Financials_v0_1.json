@@ -1,0 +1,242 @@
+{
+  "dataset_id": "sta.financial.pilot.v0_1",
+  "source_file": "STA_Financial_Due_Diligence_Input_v0_1.xlsx",
+  "sheets": {
+    "BS": [
+      {
+        "Balance_sheet": "",
+        "Unnamed: 1": "EUR '000",
+        "Unnamed: 2": "",
+        "Unnamed: 3": "",
+        "Unnamed: 4": ""
+      },
+      {
+        "Balance_sheet": "",
+        "Unnamed: 1": "",
+        "Unnamed: 2": "ClosingBalance_2024",
+        "Unnamed: 3": "OpeningBalance_2024",
+        "Unnamed: 4": "Delta"
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "InvestmentsInSubsidiaries",
+        "Unnamed: 2": 1585,
+        "Unnamed: 3": 645242,
+        "Unnamed: 4": -643657
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "IC_Receivables_LongTerm",
+        "Unnamed: 2": 0,
+        "Unnamed: 3": 3430,
+        "Unnamed: 4": -3430
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "IC_Receivables_ShortTerm",
+        "Unnamed: 2": 483,
+        "Unnamed: 3": 3338,
+        "Unnamed: 4": -2855
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "CashAndCashEquivalents",
+        "Unnamed: 2": 41,
+        "Unnamed: 3": 20,
+        "Unnamed: 4": 21
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "AssetsTotal",
+        "Unnamed: 2": 2141,
+        "Unnamed: 3": 652057,
+        "Unnamed: 4": -649916
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "RestrictedEquity",
+        "Unnamed: 2": 45,
+        "Unnamed: 3": 45,
+        "Unnamed: 4": 0
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "UnrestrictedEquity",
+        "Unnamed: 2": 1530,
+        "Unnamed: 3": 493866,
+        "Unnamed: 4": -492336
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "EquityTotal",
+        "Unnamed: 2": 1575,
+        "Unnamed: 3": 493911,
+        "Unnamed: 4": -492336
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "IC_Liabilities_LongTerm",
+        "Unnamed: 2": 0,
+        "Unnamed: 3": 157898,
+        "Unnamed: 4": -157898
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "IC_Liabilities_ShortTerm",
+        "Unnamed: 2": 526,
+        "Unnamed: 3": 25,
+        "Unnamed: 4": 501
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "LiabilitiesAndEquityTotal",
+        "Unnamed: 2": 2141,
+        "Unnamed: 3": 652057,
+        "Unnamed: 4": -649916
+      },
+      {
+        "Balance_sheet": "Parent ",
+        "Unnamed: 1": "BalanceCheck",
+        "Unnamed: 2": 0,
+        "Unnamed: 3": 0,
+        "Unnamed: 4": 0
+      },
+      {
+        "Balance_sheet": "Sub_1",
+        "Unnamed: 1": "InvestmentsInSubsidiaries",
+        "Unnamed: 2": 20224.847452036724,
+        "Unnamed: 3": 429587.10433730966,
+        "Unnamed: 4": -409362.2568852729
+      },
+      {
+        "Balance_sheet": "Sub_1",
+        "Unnamed: 1": "IC_Receivables_LongTerm",
+        "Unnamed: 2": 2217.5710516189324,
+        "Unnamed: 3": 31062.28821944918,
+        "Unnamed: 4": -28844.717167830247
+      },
+      {
+        "Balance_sheet": "Sub_1",
+        "Unnamed: 1": "CashAndCashEquivalents",
+        "Unnamed: 2": 261.82865153097686,
+        "Unnamed: 3": 0.6970479907646638,
+        "Unnamed: 4": 261.1316035402122
+      },
+      {
+        "Balance_sheet": "Sub_1",
+        "Unnamed: 1": "AssetsTotal",
+        "Unnamed: 2": 22900.72755758342,
+        "Unnamed: 3": 460650.1767357485,
+        "Unnamed: 4": -437749.44917816506
+      },
+      {
+        "Balance_sheet": "Sub_1",
+        "Unnamed: 1": "RestrictedEquity",
+        "Unnamed: 2": 113.1831675004123,
+        "Unnamed: 3": 113.1831675004123,
+        "Unnamed: 4": 0
+      },
+      {
+        "Balance_sheet": "Sub_1",
+        "Unnamed: 1": "UnrestrictedEquity",
+        "Unnamed: 2": 1471.8168324995877,
+        "Unnamed: 3": 459810.23390687705,
+        "Unnamed: 4": -458338.4170743775
+      },
+      {
+        "Balance_sheet": "Sub_1",
+        "Unnamed: 1": "EquityTotal",
+        "Unnamed: 2": 1585,
+        "Unnamed: 3": 459923.4170743775,
+        "Unnamed: 4": -458338.4170743775
+      },
+      {
+        "Balance_sheet": "Sub_1",
+        "Unnamed: 1": "IC_Liabilities_LongTerm",
+        "Unnamed: 2": 12428.627068330494,
+        "Unnamed: 3": 144.8117200813589,
+        "Unnamed: 4": 12283.815348249134
+      },
+      {
+        "Balance_sheet": "Sub_1",
+        "Unnamed: 1": "IC_Liabilities_ShortTerm",
+        "Unnamed: 2": 8674.23945907317,
+        "Unnamed: 3": 557.1156066186576,
+        "Unnamed: 4": 8117.1238524545115
+      },
+      {
+        "Balance_sheet": "Sub_1",
+        "Unnamed: 1": "LiabilitiesAndEquityTotal",
+        "Unnamed: 2": 22900.72755758342,
+        "Unnamed: 3": 460650.1767357485,
+        "Unnamed: 4": -437749.44917816506
+      },
+      {
+        "Balance_sheet": "",
+        "Unnamed: 1": "BalanceCheck",
+        "Unnamed: 2": 0,
+        "Unnamed: 3": 0,
+        "Unnamed: 4": 0
+      }
+    ],
+    "IS": [
+      {
+        "Income statement": "",
+        "Unnamed: 1": "EUR '000",
+        "Unnamed: 2": ""
+      },
+      {
+        "Income statement": "",
+        "Unnamed: 1": "",
+        "Unnamed: 2": 2024.0
+      },
+      {
+        "Income statement": "Parent",
+        "Unnamed: 1": "Impairment_Investments",
+        "Unnamed: 2": 643657.0
+      },
+      {
+        "Income statement": "Parent",
+        "Unnamed: 1": "DividendIncome_Subsidiary",
+        "Unnamed: 2": 412897.0
+      }
+    ],
+    "EQ": [
+      {
+        "Equity": "",
+        "Unnamed: 1": "EUR '000",
+        "Unnamed: 2": ""
+      },
+      {
+        "Equity": "",
+        "Unnamed: 1": "",
+        "Unnamed: 2": 2024.0
+      },
+      {
+        "Equity": "Parent",
+        "Unnamed: 1": "EquityOpening",
+        "Unnamed: 2": 493911.0
+      },
+      {
+        "Equity": "Parent",
+        "Unnamed: 1": "ProfitForTheYear",
+        "Unnamed: 2": -240758.0
+      },
+      {
+        "Equity": "Parent",
+        "Unnamed: 1": "DividendsPaid",
+        "Unnamed: 2": -251690.0
+      },
+      {
+        "Equity": "Parent",
+        "Unnamed: 1": "OtherEquityMovements",
+        "Unnamed: 2": 112.0
+      },
+      {
+        "Equity": "Parent",
+        "Unnamed: 1": "EquityClosing",
+        "Unnamed: 2": 1575.0
+      }
+    ]
+  }
+}
